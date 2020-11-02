@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebEx Javascript SDK :: Sample: Multi Party Calling</title>
+    <link rel="stylesheet" href="https://downloads.momentum-ui.com/@momentum-ui/core/css/momentum-ui.css">
+
+    <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <style>
+      main {
+        padding: 10px;
+      }
+      table {
+        border-collapse: collapse;
+        padding: 10px;
+        margin: 10px;
+      }
+      table, th, td {
+        border: 1px solid black;
+      }
+      thead th {
+        font-weight: bold;
+      }
+      tbody td, th {
+        min-width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="md-top-bar md-top-bar--dark" role="navigation">
+      <div class="md-top-bar__container row">
+        <div class="md-top-bar__brand">
+          <a class="md-brand" href="#">
+            <div class="md-brand__logo" style="position: relative;width: 250px;height: 30px;bottom: 5px;">
+              <img src="v-learning.jpg" alt="v-learning-logo" style="object-fit: cover;">
+            </div>
+            <div class="md-brand__title" style="white-space: nowrap;">Webex JS SDK Samples</div>
+          </a>
+        </div>
+        <nav class="md-top-bar__nav ">
+          <div class="md-list md-list--horizontal" role="list">
+
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1>Multi Party Calling</h1>
+      <form id="credentials">
+        <fieldset>
+          <legend>Credentials</legend>
+          <input
+            id="access-token"
+            name="accessToken"
+            placeholder="Your access token"
+            type="text">
+          <input id="connect" title="connect" type="submit" value="connect">
+          <p id="connection-status">disconnected</p>
+        </fieldset>
+      </form>
+
+      <form id="dialer">
+        <fieldset>
+          <legend>Dialer</legend>
+          <input
+            id="invitee"
+            name="invitee"
+            placeholder="Room ID or SIP URI"
+            type="text">
+            <input title="dial" type="submit" value="dial">
+        </fieldset>
+      </form>
+
+      <form id="call-controls">
+        <fieldset>
+          <legend>Call Controls</legend>
+          <button id="hangup" title="hangup" type="button">cancel/hangup</button>
+        </fieldset>
+      </form>
+
+      <table id="call-status">
+          <thead>
+              <tr><th colspan="3">Call Membership Status</th></tr>
+              <tr>
+                <th>User</th>
+                <th>Call status</th>
+                <th>Is Local?</th>
+              </tr>
+          </thead>
+          <tbody id="call-members">
+          </tbody>
+        </table>
+
+      <div style="display: flex;flex-direction: row;flex-flow: wrap;">
+        <video id="self-view" muted autoplay playsinline class="video-js"></video>
+        <div>
+          <audio id="remote-view-audio" autoplay playsinline></audio>
+          <video id="remote-view-video" autoplay playsinline class="video-js"></video>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/webex/umd/webex.min.js"></script>
+
+    <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+    <!-- app.js is your application code -->
+    <script src="app.js"></script>
+  </body>
+</html>
